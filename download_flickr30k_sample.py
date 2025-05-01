@@ -19,17 +19,14 @@ def save_image(image_data, filename):
         return False
 
 def main():
-    # Create directories
     setup_directories()
-    
+
     print("Loading Flickr30k dataset...")
     dataset = load_dataset("nlphuji/flickr30k", split="test")
     
-    # Get total number of images
     total_images = len(dataset)
     print(f"Total images available: {total_images}")
     
-    # Randomly sample 100 indices
     sample_size = 100
     random_indices = random.sample(range(total_images), sample_size)
     
@@ -40,9 +37,7 @@ def main():
         image_filename = f"flickr30k_sample/images/image_{idx}.jpg"
         metadata_filename = f"flickr30k_sample/metadata/image_{idx}.json"
         
-        # Save image
         if save_image(item['image'], image_filename):
-            # Save metadata
             metadata = {
                 'image_id': item['img_id'],
                 'filename': item['filename'],
