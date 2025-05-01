@@ -27,7 +27,7 @@ def main():
     total_images = len(dataset)
     print(f"Total images available: {total_images}")
     
-    sample_size = 100
+    sample_size = 500
     random_indices = random.sample(range(total_images), sample_size)
     
     print(f"\nDownloading {sample_size} random images...")
